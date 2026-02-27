@@ -1,33 +1,38 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
 public class App {
     static void main() {
         System.out.println( "welcome to palindrome");
         System.out.println("version1.0");
         System.out.println("system    initiated");
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
 
-        public class UseCase7PalindromeCheckerApp {
+        public class App {
 
             public static void main(String[] args) {
 
-                // Define the input string
-                String input = "refer";
+                Scanner sc = new Scanner(System.in);
 
-                // Create a Deque to store characters
-                Deque<Character> deque = new ArrayDeque<>();
+                System.out.print("Enter a string: ");
+                String input = sc.nextLine();
 
-                // Add each character to the deque
+                LinkedList<Character> list = new LinkedList<>();
+
+                // Add characters to linked list
                 for (char c : input.toCharArray()) {
-                    deque.addLast(c);
+                    list.add(c);
                 }
 
-                // Flag to track palindrome result
                 boolean isPalindrome = true;
 
-                // Continue comparison while more than one element exists
-                while (deque.size() > 1) {
-                    char first = deque.removeFirst();
-                    char last = deque.removeLast();
+                // Compare first and last
+                while (list.size() > 1) {
+                    char first = list.removeFirst();
+                    char last = list.removeLast();
 
                     if (first != last) {
                         isPalindrome = false;
@@ -35,9 +40,10 @@ import java.util.Deque;
                     }
                 }
 
-                // Output result
-                System.out.println("Input : " + input);
+                System.out.println("Input: " + input);
                 System.out.println("Is Palindrome? : " + isPalindrome);
+
+                sc.close();
             }
         }
                     }
