@@ -3,38 +3,33 @@ public class App {
         System.out.println( "welcome to palindrome");
         System.out.println("version1.0");
         System.out.println("system    initiated");
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
-        public class UseCase6PalindromeCheckerApp {
+        public class UseCase7PalindromeCheckerApp {
 
             public static void main(String[] args) {
 
-                // Define input string
-                String input = "civic";
+                // Define the input string
+                String input = "refer";
 
-                // Create Queue (FIFO)
-                Queue<Character> queue = new LinkedList<>();
+                // Create a Deque to store characters
+                Deque<Character> deque = new ArrayDeque<>();
 
-                // Create Stack (LIFO)
-                Stack<Character> stack = new Stack<>();
-
-                // Insert characters into both queue and stack
+                // Add each character to the deque
                 for (char c : input.toCharArray()) {
-                    queue.add(c);     // enqueue
-                    stack.push(c);    // push
+                    deque.addLast(c);
                 }
 
-                // Flag to track palindrome status
+                // Flag to track palindrome result
                 boolean isPalindrome = true;
 
-                // Compare queue (front) and stack (top)
-                while (!queue.isEmpty()) {
-                    char fromQueue = queue.remove();   // dequeue
-                    char fromStack = stack.pop();      // pop
+                // Continue comparison while more than one element exists
+                while (deque.size() > 1) {
+                    char first = deque.removeFirst();
+                    char last = deque.removeLast();
 
-                    if (fromQueue != fromStack) {
+                    if (first != last) {
                         isPalindrome = false;
                         break;
                     }
