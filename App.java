@@ -3,31 +3,32 @@ public class App {
         System.out.println( "welcome to palindrome");
         System.out.println("version1.0");
         System.out.println("system    initiated");
-        public class UseCase4PalindromeCheckerApp {
+import java.util.Stack;
+
+        public class UseCase5PalindromeCheckerApp {
 
             public static void main(String[] args) {
 
                 // Declare and initialize input
-                String input = "radar";
+                String input = "noon";
 
-                // Convert string to character array
-                char[] chars = input.toCharArray();
+                // Create stack
+                Stack<Character> stack = new Stack<>();
 
-                // Initialize pointers
-                int start = 0;
-                int end = chars.length - 1;
+                // Push characters into stack
+                for (char c : input.toCharArray()) {
+                    stack.push(c);
+                }
 
                 // Assume palindrome
                 boolean isPalindrome = true;
 
-                // Two-pointer comparison
-                while (start < end) {
-                    if (chars[start] != chars[end]) {
+                // Compare by popping from stack
+                for (char c : input.toCharArray()) {
+                    if (c != stack.pop()) {
                         isPalindrome = false;
                         break;
                     }
-                    start++;
-                    end--;
                 }
 
                 // Display result
