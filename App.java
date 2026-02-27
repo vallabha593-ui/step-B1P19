@@ -3,36 +3,38 @@ public class App {
         System.out.println( "welcome to palindrome");
         System.out.println("version1.0");
         System.out.println("system    initiated");
-import java.util.Scanner;
-
-        public class UseCase3PalindromeCheckerApp {
+        public class UseCase4PalindromeCheckerApp {
 
             public static void main(String[] args) {
 
-                Scanner scanner = new Scanner(System.in);
+                // Declare and initialize input
+                String input = "radar";
 
-                System.out.println("Welcome to Palindrome Checker");
-                System.out.print("Enter a string: ");
+                // Convert string to character array
+                char[] chars = input.toCharArray();
 
-                String input = scanner.nextLine();
-                String reversed = "";
+                // Initialize pointers
+                int start = 0;
+                int end = chars.length - 1;
 
-                // Reverse the string using loop
-                for (int i = input.length() - 1; i >= 0; i--) {
-                    reversed = reversed + input.charAt(i);
+                // Assume palindrome
+                boolean isPalindrome = true;
+
+                // Two-pointer comparison
+                while (start < end) {
+                    if (chars[start] != chars[end]) {
+                        isPalindrome = false;
+                        break;
+                    }
+                    start++;
+                    end--;
                 }
 
-                // Compare original and reversed string
-                if (input.equals(reversed)) {
-                    System.out.println("It is a Palindrome.");
-                } else {
-                    System.out.println("It is NOT a Palindrome.");
-                }
-
-                scanner.close();
+                // Display result
+                System.out.println("Input : " + input);
+                System.out.println("Is Palindrome? : " + isPalindrome);
             }
         }
-
                     }
 
 }
