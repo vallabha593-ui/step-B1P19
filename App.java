@@ -8,43 +8,26 @@ public class App {
         System.out.println("welcome to palindrome");
         System.out.println("version1.0");
         System.out.println("system    initiated");
-        import java.util.LinkedList;
-import java.util.Scanner;
 
-        public class App {
 
-            public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-                Scanner sc = new Scanner(System.in);
+        System.out.print("Input: ");
+        String input = scanner.nextLine();
 
-                System.out.print("Enter a string: ");
-                String input = sc.nextLine();
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
 
-                LinkedList<Character> list = new LinkedList<>();
+        boolean isPalindrome = true;
 
-                // Add characters to linked list
-                for (char c : input.toCharArray()) {
-                    list.add(c);
-                }
-
-                boolean isPalindrome = true;
-
-                // Compare first and last
-                while (list.size() > 1) {
-                    char first = list.removeFirst();
-                    char last = list.removeLast();
-
-                    if (first != last) {
-                        isPalindrome = false;
-                        break;
-                    }
-                }
-
-                System.out.println("Input: " + input);
-                System.out.println("Is Palindrome? : " + isPalindrome);
-
-                sc.close();
+        for (int i = 0; i < normalized.length() / 2; i++) {
+            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
             }
         }
+
+        System.out.println("Is Palindrome?: " + isPalindrome);
+
+        scanner.close();
     }
-}
+        }
