@@ -10,24 +10,35 @@ public class App {
         System.out.println("system    initiated");
 
 
-        Scanner scanner = new Scanner(System.in);
+        class PalindromeChecker {
 
-        System.out.print("Input: ");
-        String input = scanner.nextLine();
+            public boolean checkPalindrome(String input) {
 
-        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+                String normalized = input.replaceAll("\\s+", "").toLowerCase();
 
-        boolean isPalindrome = true;
+                for (int i = 0; i < normalized.length() / 2; i++) {
+                    if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
+                        return false;
+                    }
+                }
 
-        for (int i = 0; i < normalized.length() / 2; i++) {
-            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
-                isPalindrome = false;
-                break;
+                return true;
             }
         }
 
-        System.out.println("Is Palindrome?: " + isPalindrome);
 
-        scanner.close();
-    }
+
+                Scanner scanner = new Scanner(System.in);
+
+                System.out.print("Input: ");
+                String input = scanner.nextLine();
+
+                PalindromeChecker checker = new PalindromeChecker();
+
+                boolean result = checker.checkPalindrome(input);
+
+                System.out.println("Is Palindrome?: " + result);
+
+                scanner.close();
+            }
         }
